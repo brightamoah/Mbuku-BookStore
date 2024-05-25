@@ -25,6 +25,9 @@
             <li>
               <a href="#"><FontAwesome-icon :icon="['fab', 'linkedin']"></FontAwesome-icon></a>
             </li>
+            <li>
+              <img src="/icons/fb_icon.png" alt="fb">
+            </li>
           </ul>
         </div>
         <div class="col-md-4" style="background-color: #222">

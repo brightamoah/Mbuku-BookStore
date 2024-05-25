@@ -6,10 +6,10 @@
     <BNavbarToggle target="nav-collapse" />
     <BCollapse id="nav-collapse" is-nav>
       <BNavbarNav>
-        <BNavItem href="#" style="font-size: 1.2rem">Home</BNavItem>
-        <BNavItem href="#" style="font-size: 1.2rem">Shop</BNavItem>
-        <BNavItem href="#" style="font-size: 1.2rem">Contact</BNavItem>
-        <BNavItem href="#" style="font-size: 1.2rem">About</BNavItem>
+        <RouterLink to="/"><BNavItem href="#" style="font-size: 1.2rem">Home</BNavItem></RouterLink>
+        <RouterLink to="/shop"><BNavItem href="#" style="font-size: 1.2rem">Shop</BNavItem></RouterLink>
+        <RouterLink to="/contact"><BNavItem href="#" style="font-size: 1.2rem">Contact</BNavItem></RouterLink>
+        <router-link to="/about"><BNavItem  href="#" style="font-size: 1.2rem">About</BNavItem></router-link>
       </BNavbarNav>
       <!-- Right aligned nav items -->
       <BNavbarNav class="ms-auto mb-2 mb-lg-0">
@@ -21,4 +21,17 @@
 </template>
 
 <script setup></script>
-<style></style>
+<style>
+    .nav-link{
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 10px;
+    }
+    .nav-link:hover{
+      color: orangered;
+    }
+    .nav-item.active{
+      color: orangered;
+      font-weight: 600;
+    }
+</style>
