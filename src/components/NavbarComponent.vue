@@ -21,7 +21,7 @@
 </template>
 
 <script setup></script>
-<style>
+<style scoped>
     .nav-link{
       font-size: 1.2rem;
       font-weight: 600;
@@ -34,4 +34,17 @@
       color: orangered;
       font-weight: 600;
     }
+    .navbar-brand {
+  padding-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-toggler {
+  margin-right: 1rem;
+}
+
 </style>
