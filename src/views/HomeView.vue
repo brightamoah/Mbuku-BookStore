@@ -92,26 +92,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
 import NavbarComponent from '@/components/NavbarComponent.vue'
 </script>
 
-<style>
-* {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  background-color: #f8f9fa;
-}
-
-.header {
-  background-color: #ff6347;
-  padding: 1rem;
-}
-
-.header a {
-  color: #333;
-  text-decoration: none;
-  background-color: #f8f9fa;
-}
-
+<style scoped>
 .main {
   padding: 3rem 0;
 }
@@ -379,19 +360,6 @@ import NavbarComponent from '@/components/NavbarComponent.vue'
   .main form button[type='submit'] {
     width: 100%;
   }
-}
-
-.navbar-brand {
-  padding-right: 1rem;
-  font-size: 1.5rem;
-}
-
-.navbar-nav {
-  margin-left: auto;
-}
-
-.navbar-toggler {
-  margin-right: 1rem;
 }
 
 .btn-primary {
