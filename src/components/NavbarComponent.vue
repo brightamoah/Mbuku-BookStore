@@ -19,8 +19,16 @@
       </BNavbarNav>
       <!-- Right aligned nav items -->
       <BNavbarNav class="ms-auto mb-2 mb-lg-0">
-        <BButton variant="danger" style="margin: 10px">Login</BButton>
-        <BButton variant="success" style="margin: 10px">Sign Up</BButton>
+        <BButton variant="danger" style="margin: 10px">
+          <RouterLink to="/login" style="background-color: transparent; color: #fff"
+            >Login</RouterLink
+          ></BButton
+        >
+        <BButton variant="success" style="margin: 10px">
+          <RouterLink to="/signup" style="background-color: transparent; color: #fff"
+            >Sign Up</RouterLink
+          ></BButton
+        >
       </BNavbarNav>
     </BCollapse>
   </BNavbar>
@@ -59,9 +67,13 @@
 }
 
 .nav-link {
-  font-size: 1.2rem;
+  font-size: 5rem;
   font-weight: 600;
   margin: 10px;
+}
+
+.router-link-active router-link-exact-active {
+  color: orangered;
 }
 .nav-link:hover {
   color: orangered;
@@ -69,6 +81,7 @@
 .nav-item.active {
   color: orangered;
   font-weight: 600;
+  font-size: 2rem;
 }
 
 /*added*/
