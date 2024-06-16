@@ -287,67 +287,6 @@ import NavbarComponent from '@/components/NavbarComponent.vue'
   margin-bottom: 1rem;
 }
 
-.footer {
-  background-color: #222;
-  color: #fff;
-  padding: 2rem 0;
-  border: none;
-}
-
-.footer h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  background-color: #222;
-  color: #fff;
-}
-
-.footer p {
-  margin-bottom: 1rem;
-  background-color: #222;
-  color: #fff;
-}
-
-.footer ul {
-  list-style: none;
-  padding: 0;
-  background-color: #222;
-  color: #fff;
-}
-
-.footer li {
-  margin-bottom: 0.5rem;
-  background-color: #222;
-  color: #fff;
-}
-
-.footer a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer form {
-  margin-top: 1rem;
-  background-color: #222;
-  color: #fff;
-}
-
-.footer form input[type='email'] {
-  width: 100%;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 4px;
-}
-
-.footer form button[type='submit'] {
-  width: 100%;
-  padding: 0.5rem;
-  background-color: #ff6347;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 1rem;
-}
-
 @media (max-width: 767.98px) {
   .main h2 {
     font-size: 1.5rem;

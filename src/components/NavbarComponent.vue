@@ -27,7 +27,6 @@
 </template>
 
 <script setup></script>
-
 <style scoped>
 .header {
   width: 100%;
@@ -70,5 +69,19 @@
 .nav-item.active {
   color: orangered;
   font-weight: 600;
+}
+
+/*added*/
+.navbar-brand {
+  padding-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-toggler {
+  margin-right: 1rem;
 }
 </style>
