@@ -5,8 +5,8 @@
       <section class="shop py-5">
         <div class="container">
           <h2 class="text-center">Shop for textbooks and other educational resources</h2>
-          <p>Find the best textbooks and educational resources for your child's needs.</p>
-          <a href="https://shop.snapplify.com/" target="_blank" class="btn btn-primary">Shop Now</a>
+          <p style="text-align: center;">Find the best textbooks and educational resources for your child's needs.</p>
+          <a href="https://shop.snapplify.com/" target="_blank" class="btn btn-primary" style="width: 10rem;display: flex; align-items: center; justify-content: center; background-color: orangered; border: none; ">Shop Now</a>
         </div>
       </section>
       <section

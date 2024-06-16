@@ -7,26 +7,29 @@
       <p class="welcome-txt">Please login below</p>
     </div>
 
-    <form class="input-field">
+    <form class="input-field" @submit.prevent="handleSubmit">>
       <input
         class="input"
         ref="emailRef"
         type="email"
         id="emailbox"
         placeholder="Email"
-        autocomplete="off"
+        v-model="email"
         required
       />
 
       <div class="password-container">
-        <input class="input" id="passwordbox" placeholder="Password" autocomplete="off" required />
+        <input class="input" id="passwordbox" placeholder="Password" v-model="password" :type="passwordFieldType" @input="passwordInput = true"
+        required />
 
-        <!-- <button @click="authStore.togglePasswordFieldType" type="button" class="show-password-btn">
-          <span v-if="authStore.passwordFieldType === 'password'"
-            ><img class="show-icon" src="/icons/view.png"
-          /></span>
-          <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
-        </button> -->
+        <button type="button" class="show-password-btn" @click="togglePasswordFieldType">
+            <span v-if="passwordFieldType === 'password'"
+              ><img class="show-icon" src="/icons/view.png"
+            /></span>
+            <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
+          </button>
+        
+        
       </div>
 
       <div class="subsec">
@@ -43,7 +46,10 @@
       </div>
 
       <div>
-        <button class="submit-btn" type="submit">Login</button>
+       <div>
+        <button class="submit-btn" type="submit" :disabled="!inputNotEmpty" >Login</button>
+
+       </div>
 
         <div class="or">OR</div>
 
@@ -61,7 +67,35 @@
   </div>
 </template>
 <script setup>
+import { ref, computed } from 'vue'
 import NavbarComponent from '@/components/NavbarComponent.vue'
+
+
+const email = ref('')
+const password = ref('')
+const passwordFieldType = ref('password') // Initial password type
+const passwordInput = ref(false)
+
+
+const togglePasswordFieldType = () => {
+  passwordFieldType.value = passwordFieldType.value === 'password' ? 'text' : 'password'
+}
+
+const handleSubmit = () => {
+  // Handle the form submission logic
+  console.table({
+    email: email.value,
+    password: password.value,
+  })
+  // Reset the form
+  email.value = ''
+  password.value = ''
+}
+
+const inputNotEmpty = computed (() =>{
+return email.value !== " " && password.value !== " "
+})
+
 </script>
 <style scoped>
 .login-container {

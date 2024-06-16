@@ -31,27 +31,27 @@
               <ul>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="index.html" style="background-color: #0d2735">Introduction</a>
+                  <a href="index.html" style="background-color: #0d2735; text-decoration: none">Introduction</a>
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="key.html" style="background-color: #0d2735">Key Health Challenges </a>
+                  <a href="key.html" style="background-color: #0d2735; text-decoration: none">Key Health Challenges </a>
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="strategies.html" style="background-color: #0d2735"
+                  <a href="strategies.html" style="background-color: #0d2735; text-decoration: none"
                     >Strategies for improvement</a
                   >
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="Initiatives.html" style="background-color: #0d2735"
+                  <a href="Initiatives.html" style="background-color: #0d2735; text-decoration: none"
                     >Global Initiatives</a
                   >
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="get.html" style="background-color: #0d2735">Get Involved</a>
+                  <a href="get.html" style="background-color: #0d2735; text-decoration: none">Get Involved</a>
                 </li>
               </ul>
             </div>
@@ -61,15 +61,16 @@
               <ul>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="#" style="background-color: #0d2735">About Us</a>
+                  <a href="#" style="background-color: #0d2735; text-decoration: none">About Us</a>
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="#" style="background-color: #0d2735">Legal</a>
+                  <a href="#" style="background-color: #0d2735 ;text-decoration: none" >Legal</a>
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="contact.html" style="background-color: #0d2735">About SDG's</a>
+                  <a href="contact.html" style="background-color: #0d2735
+                  ;text-decoration: none">About SDG's</a>
                 </li>
               </ul>
             </div>
@@ -79,12 +80,12 @@
               style="background-color: #0d2735; color: #a2cce3"
             >
               <h4 style="background-color: #0d2735">Contact Us</h4>
-              <p style="background-color: #0d2735; color:">
+              <p style="background-color: #0d2735; color: white">
                 Border-hub <br />
                 Busia,<br />
                 Kenya <br />
-                <strong style="background-color: #0d2735">Phone:</strong> +254 792 516 158<br />
-                <strong style="background-color: #0d2735">Email:</strong>
+                <strong style="background-color: #0d2735;color: white">Phone:</strong> +254 792 516 158<br />
+                <strong style="background-color: #0d2735;color: white">Email:</strong>
                 logankhainga69@gmail.com<br />
               </p>
             </div>
@@ -105,9 +106,9 @@
       </div>
 
       <div class="container" style="background-color: #0d2735">
-        <div class="copyright" style="background-color: #0d2735">
+        <div class="copyright" style="background-color: #0d2735;color: white; ">
           &copy; Copyright
-          <strong><span style="background-color: #0d2735">Logan & Phanice</span></strong
+          <strong><span style="background-color: #0d2735; color: white">Logan </span></strong
           >. All Rights Reserved
         </div>
         <div class="credits" style="background-color: #0d2735">
