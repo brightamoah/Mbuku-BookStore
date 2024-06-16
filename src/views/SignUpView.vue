@@ -3,166 +3,190 @@
   <div class="login-container">
     <div>
       <img class="logo" src="/images/mbuku.logo.png" alt="mbuku-logo" />
-      <p class="welcome-txt" id="wel-txt">Welcome To Mbuku!</p>
-      <p class="welcome-txt">Please Sign Up below</p>
+      <p class="welcome-txt" id="wel-txt">Welcome to Mbuku!</p>
+      <p class="welcome-txt">Please sign up below</p>
     </div>
 
     <form class="input-field" @submit.prevent="handleSubmit">
       <div class="first-section" v-if="!next">
+        <input class="input" type="text" id="namebox" v-model="name" placeholder="Name" required />
         <input
-        v-model="name"
           class="input"
-          ref="emailRef"
-          type="text"
-          id="emailbox"
-          placeholder="Name"
-          autocomplete="off"
-          required
+          type="tel"
+          id="phone"
+          v-model="phoneNumber"
+          placeholder="Your Phone Number"
         />
+
         <input
-        v-model="email"
           class="input"
-          ref="emailRef"
           type="email"
           id="emailbox"
+          v-model="email"
           placeholder="Email"
-          autocomplete="off"
           required
         />
-        <input
-        v-model="phoneNumber"
-          class="input"
-          ref="emailRef"
-          type="tel"
-          id="emailbox"
-          placeholder="Phone Number"
-          autocomplete="off"
-          required
-        />
-        <button type="button" class="submit-btn"  @click="nextPage">Next</button>
-        
-      </div>
-      
-      <!-- <input
-        class="input"
-        ref="emailRef"
-        type="email"
-        id="emailbox"
-        placeholder="Email"
-        autocomplete="off"
-        required
-      /> -->
 
-        <div class="second-section" v-else>
-            <div class="password-container">
-        <input
-        v-model="password"
-          class="input"
-          type="password"
-          id="passwordbox"
-          placeholder="Enter Your Password"
-          autocomplete="off"
-          required
-          style="margin-bottom: 10px"
-        />
+        <button type="button" class="next-button" @click="nextPage">Next</button>
+      </div>
+
+      <div class="second-section" v-else>
+        <div class="password-container">
+          <input
+            class="input"
+            id="passwordbox"
+            :type="passwordFieldType"
+            v-model="password"
+            placeholder="Password"
+            autocomplete="off"
+            @input="passwordInput = true"
+            required
+          />
+
+          <div class="error-message" v-if="passwordInput && !passwordLengthValid">
+            password must be at least 8 characters long
+          </div>
+
+          <button type="button" class="show-password-btn" @click="togglePasswordFieldType">
+            <span v-if="passwordFieldType === 'password'"
+              ><img class="show-icon" src="/icons/view.png"
+            /></span>
+            <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
+          </button>
+        </div>
+
         <br />
-        <input
-          class="input"
-          ref="emailRef"
-          type="password"
-          id="emailbox"
-          placeholder="Confirm Password"
-          autocomplete="off"
-          required
-          style="margin-bottom: 10px"
-        />
 
-        <!-- <button @click="authStore.togglePasswordFieldType" type="button" class="show-password-btn">
-          <span v-if="authStore.passwordFieldType === 'password'"
-            ><img class="show-icon" src="/icons/view.png"
-          /></span>
-          <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
-        </button> -->
+        <div class="password-container">
+          <input
+            class="input"
+            id="confirmPasswordbox"
+            :type="confirmPasswordFieldType"
+            v-model="confirmPassword"
+            placeholder="Confirm Password"
+            autocomplete="off"
+            @input="confirmPasswordInput = true"
+            required
+          />
+
+          <div v-if="confirmPasswordInput && !passwordMatch" class="error-message">
+            Confirm password does not match password
+          </div>
+
+          <button type="button" class="show-password-btn" @click="toggleConfirmPasswordFieldType">
+            <span v-if="confirmPasswordFieldType === 'password'"
+              ><img class="show-icon" src="/icons/view.png"
+            /></span>
+            <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
+          </button>
+        </div>
+        <br />
+
+        <button class="submit-btn" type="submit" :disabled="!passwordMatch || !passwordLengthValid">
+          Sign Up
+        </button>
       </div>
 
-      <div class="subsec">
+      <!-- <div class="subsec">
         <div class="checkbox-sec">
           <label class="checkbox-txt" for="checkbox"
-            >Remember me
-            <input class="checkbox" id="checkbox" type="checkbox" />
+            >Remember me <input class="checkbox" id="checkbox" type="checkbox" />
+
             <span class="checkbox-container"></span>
           </label>
         </div>
-        <div>
-          <span class="link">Forgot password?</span>
-        </div>
-      </div>
+      </div> -->
 
       <div>
-        <button class="submit-btn" type="submit" style="margin-top: 1.2rem">Login</button>
-
-        </div>
         <div class="or">OR</div>
-
         <button class="signin-google">
-          <img class="google-img" src="/icons/google.png" />
-          <span class="google-txt">Sign In With Google</span>
+          <img class="google-img" src="/icons/google.png" /><span class="google-txt"
+            >Sign In With Google</span
+          >
         </button>
 
         <p class="question">
           Already have an account?
-          <span class="link">Log In</span>
+          <RouterLink to="/login" style="text-decoration: none"
+            ><span class="link">Login</span></RouterLink
+          >
         </p>
       </div>
     </form>
   </div>
 </template>
-
+<script>
+export default {
+  name: 'SignUpView'
+}
+</script>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import NavbarComponent from '@/components/NavbarComponent.vue'
-
 
 const name = ref('')
 const email = ref('')
 const phoneNumber = ref('')
 const password = ref('')
+const confirmPassword = ref('')
 const next = ref(false)
-// const formData = {
-//     name: name.value,
-//     email: email.value,
-//     phoneNumber: phoneNumber.value,
-//     password:  password.value
-// }
+const passwordFieldType = ref('password') // Initial password type
+const confirmPasswordFieldType = ref('password') // Initial confirm password type
+const passwordInput = ref(false)
+const confirmPasswordInput = ref(false)
 
 const nextPage = () => {
-    if(name.value && email.value && phoneNumber.value){
-        next.value = true
-    } else {
-        alert('Please fill all the fields')
-    }
-    
+  if (name.value && email.value && phoneNumber.value) {
+    next.value = !next.value
+  } else {
+    alert('Please fill all the fields')
+  }
 }
+
+const togglePasswordFieldType = () => {
+  passwordFieldType.value = passwordFieldType.value === 'password' ? 'text' : 'password'
+}
+
+const toggleConfirmPasswordFieldType = () => {
+  confirmPasswordFieldType.value =
+    confirmPasswordFieldType.value === 'password' ? 'text' : 'password'
+}
+
+const passwordMatch = computed(() => {
+  return password.value === confirmPassword.value
+})
+
+const passwordLengthValid = computed(() => {
+  return password.value.length >= 8
+})
+
 const handleSubmit = () => {
   // Handle the form submission logic
-  console.log('Form submitted')
-  console.log("name:",name.value)
-  console.log("email:",email.value)
-  console.log("phone number:",phoneNumber.value)
-  console.log(password.value)
+  console.table({
+    name: name.value,
+    email: email.value,
+    phoneNumber: phoneNumber.value,
+    password: password.value,
+    confirmPassword: confirmPassword.value
+  })
+
+  // Reset the form
+  name.value = ''
+  email.value = ''
+  phoneNumber.value = ''
+  password.value = ''
+  confirmPassword.value = ''
+  next.value = false
 }
-
-
 </script>
-
 <style scoped>
-
 .login-container {
   width: 30rem;
   height: auto;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 5rem;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -183,6 +207,7 @@ const handleSubmit = () => {
   font-size: 1.5rem;
   font-weight: 500;
 }
+
 .input-field {
   width: 80%;
   height: auto;
@@ -199,6 +224,12 @@ const handleSubmit = () => {
   padding: 10px;
   border: 1px solid black;
   border-radius: 15px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .password-container {
@@ -224,6 +255,7 @@ const handleSubmit = () => {
   width: 20px;
   height: 20px;
 }
+
 .subsec {
   display: flex;
   justify-content: space-between;
@@ -256,14 +288,14 @@ const handleSubmit = () => {
 }
 
 /* Hover effect
-  .checkbox-txt:hover input ~ .checkbox-container {
-    background-color: yellow;
-  }*/
+.checkbox-txt:hover input ~ .checkbox-container {
+  background-color: yellow;
+}*/
 
 /* Active effect
-  .checkbox-txt input:active ~ .checkbox-container {
-    background-color: red;
-  }*/
+.checkbox-txt input:active ~ .checkbox-container {
+  background-color: red;
+}*/
 
 /* Checked effect */
 .checkbox-txt input:checked ~ .checkbox-container {
@@ -290,22 +322,26 @@ const handleSubmit = () => {
 }
 
 .submit-btn {
-  width: 80%;
+  width: 50%;
   height: 3rem;
   border: 1px solid #ff6347;
   border-radius: 5px;
-  margin-left: 10%;
+  margin-left: 25%;
   margin-right: 10%;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: white;
   background-color: #ff6347;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
 }
+
+.submit-btn:hover {
+  transform: scale(1.05, 1.05) translate3d(0, 0, 0);
+}
 .question {
-  text-align: center;
-  margin-top: 15px;
+  margin-left: 23%;
+  margin-top: 20px;
   font-size: 0.8rem;
   font-weight: 500;
   color: rgb(0, 0, 0);
@@ -313,21 +349,23 @@ const handleSubmit = () => {
 .link {
   color: #ff6347;
   cursor: pointer;
+  font-size: 1rem;
   text-decoration: none;
 }
+
 RouterLink {
-    text-decoration: none;
+  text-decoration: none;
 }
+
 .link:hover {
   text-decoration: underline;
-  text-decoration-color: ff6347;  
+  font-weight: 700;
 }
 
 .error-message {
-  font-size: 13px;
+  font-size: 12px;
   color: red;
-  margin-top: 20px;
-  margin-left: 30%;
+  margin-left: 15%;
 }
 
 .signin-google {
@@ -339,7 +377,7 @@ RouterLink {
   margin-left: 25%;
   font-size: 0.8rem;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgbq(0, 0, 0, 0.5);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
 }
@@ -351,7 +389,6 @@ RouterLink {
 .or {
   font-size: 1rem;
   font-weight: 500;
-  margin-top: 10px;
   margin-left: 45%;
   color: #000;
 }
@@ -360,6 +397,7 @@ RouterLink {
   width: 20px;
   height: 20px;
   margin-right: 10px;
+  margin-top: 5px;
 }
 
 .google-txt {
@@ -368,11 +406,30 @@ RouterLink {
   color: #000;
   padding: 2px;
 }
+
 .first-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.2rem;
+  transition: 0.5s ease all;
+  transform: translate(20deg);
+}
+
+.next-button {
+  width: 50%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ff6347;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  background-color: #ff6347;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 5px;
 }
 </style>

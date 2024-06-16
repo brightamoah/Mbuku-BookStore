@@ -9,4 +9,12 @@ import { RouterView, RouterLink } from 'vue-router'
   <RouterLink />
 </template>
 
-<style scoped></style>
+<style>
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f8f9fa;
+}
+</style>
