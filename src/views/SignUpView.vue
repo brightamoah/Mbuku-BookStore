@@ -7,14 +7,14 @@
       <p class="welcome-txt">Please sign up below</p>
     </div>
 
-    <form class="input-field" @submit.prevent="handleSubmit">
-      <div class="first-section" v-if="!next">
-        <input class="input" type="text" id="namebox" v-model="name" placeholder="Name" required />
+    <form class="input-field" @submit.prevent="useAuth.signUp">
+      <div class="first-section" v-if="!useAuth.next">
+        <input class="input" type="text" id="namebox" v-model="useAuth.name" placeholder="Name" required />
         <input
           class="input"
           type="tel"
           id="phone"
-          v-model="phoneNumber"
+          v-model="useAuth.phoneNumber"
           placeholder="Your Phone Number"
         />
 
@@ -22,12 +22,12 @@
           class="input"
           type="email"
           id="emailbox"
-          v-model="email"
+          v-model="useAuth.email"
           placeholder="Email"
           required
         />
 
-        <button type="button" class="next-button" @click="nextPage">Next</button>
+        <button type="button" class="next-button" @click="useAuth.nextPage">Next</button>
       </div>
 
       <div class="second-section" v-else>
@@ -35,20 +35,20 @@
           <input
             class="input"
             id="passwordbox"
-            :type="passwordFieldType"
-            v-model="password"
+            :type="useAuth.passwordFieldType"
+            v-model="useAuth.password"
             placeholder="Password"
             autocomplete="off"
-            @input="passwordInput = true"
+            @input="useAuth.passwordInput = true"
             required
           />
 
-          <div class="error-message" v-if="passwordInput && !passwordLengthValid">
+          <div class="error-message" v-if="useAuth.passwordInput && !useAuth.passwordLengthValid">
             password must be at least 8 characters long
           </div>
 
-          <button type="button" class="show-password-btn" @click="togglePasswordFieldType">
-            <span v-if="passwordFieldType === 'password'"
+          <button type="button" class="show-password-btn" @click="useAuth.togglePasswordFieldType">
+            <span v-if="useAuth.passwordFieldType === 'password'"
               ><img class="show-icon" src="/icons/view.png"
             /></span>
             <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
@@ -61,20 +61,20 @@
           <input
             class="input"
             id="confirmPasswordbox"
-            :type="confirmPasswordFieldType"
-            v-model="confirmPassword"
+            :type="useAuth.confirmPasswordFieldType"
+            v-model="useAuth.confirmPassword"
             placeholder="Confirm Password"
             autocomplete="off"
-            @input="confirmPasswordInput = true"
+            @input="useAuth.confirmPasswordInput = true"
             required
           />
 
-          <div v-if="confirmPasswordInput && !passwordMatch" class="error-message">
+          <div v-if="useAuth.confirmPasswordInput && !useAuth.passwordMatch" class="error-message">
             Confirm password does not match password
           </div>
 
-          <button type="button" class="show-password-btn" @click="toggleConfirmPasswordFieldType">
-            <span v-if="confirmPasswordFieldType === 'password'"
+          <button type="button" class="show-password-btn" @click="useAuth.toggleConfirmPasswordFieldType">
+            <span v-if="useAuth.confirmPasswordFieldType === 'password'"
               ><img class="show-icon" src="/icons/view.png"
             /></span>
             <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
@@ -82,7 +82,7 @@
         </div>
         <br />
 
-        <button class="submit-btn" type="submit" :disabled="!passwordMatch || !passwordLengthValid">
+        <button class="submit-btn" type="submit" :disabled="!useAuth.passwordMatch || !useAuth.passwordLengthValid">
           Sign Up
         </button>
       </div>
@@ -122,63 +122,65 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed } from 'vue'
-import NavbarComponent from '@/components/NavbarComponent.vue'
+import { useCounterStore } from '@/stores/counter'
+// import { ref, computed } from 'vue'
+// import NavbarComponent from '@/components/NavbarComponent.vue'
 
-const name = ref('')
-const email = ref('')
-const phoneNumber = ref('')
-const password = ref('')
-const confirmPassword = ref('')
-const next = ref(false)
-const passwordFieldType = ref('password') // Initial password type
-const confirmPasswordFieldType = ref('password') // Initial confirm password type
-const passwordInput = ref(false)
-const confirmPasswordInput = ref(false)
+const useAuth = useCounterStore()
+// const name = ref('')
+// const email = ref('')
+// const phoneNumber = ref('')
+// const password = ref('')
+// const confirmPassword = ref('')
+// const next = ref(false)
+// const passwordFieldType = ref('password') // Initial password type
+// const confirmPasswordFieldType = ref('password') // Initial confirm password type
+// const passwordInput = ref(false)
+// const confirmPasswordInput = ref(false)
 
-const nextPage = () => {
-  if (name.value && email.value && phoneNumber.value) {
-    next.value = !next.value
-  } else {
-    alert('Please fill all the fields')
-  }
-}
+// const nextPage = () => {
+//   if (name.value && email.value && phoneNumber.value) {
+//     next.value = !next.value
+//   } else {
+//     alert('Please fill all the fields')
+//   }
+// }
 
-const togglePasswordFieldType = () => {
-  passwordFieldType.value = passwordFieldType.value === 'password' ? 'text' : 'password'
-}
+// const togglePasswordFieldType = () => {
+//   passwordFieldType.value = passwordFieldType.value === 'password' ? 'text' : 'password'
+// }
 
-const toggleConfirmPasswordFieldType = () => {
-  confirmPasswordFieldType.value =
-    confirmPasswordFieldType.value === 'password' ? 'text' : 'password'
-}
+// const toggleConfirmPasswordFieldType = () => {
+//   confirmPasswordFieldType.value =
+//     confirmPasswordFieldType.value === 'password' ? 'text' : 'password'
+// }
 
-const passwordMatch = computed(() => {
-  return password.value === confirmPassword.value
-})
+// const passwordMatch = computed(() => {
+//   return password.value === confirmPassword.value
+// })
 
-const passwordLengthValid = computed(() => {
-  return password.value.length >= 8
-})
+// const passwordLengthValid = computed(() => {
+//   return password.value.length >= 8
+// })
 
-const handleSubmit = () => {
-  // Handle the form submission logic
-  console.table({
-    name: name.value,
-    email: email.value,
-    phoneNumber: phoneNumber.value,
-    password: password.value,
-    confirmPassword: confirmPassword.value
-  })
+// const handleSubmit = () => {
+//   // Handle the form submission logic
+//   console.table({
+//     name: name.value,
+//     email: email.value,
+//     phoneNumber: phoneNumber.value,
+//     password: password.value,
+//     confirmPassword: confirmPassword.value
+//   })
 
-  // Reset the form
-  name.value = ''
-  email.value = ''
-  phoneNumber.value = ''
-  password.value = ''
-  confirmPassword.value = ''
-  next.value = false
-}
+//   // Reset the form
+//   name.value = ''
+//   email.value = ''
+//   phoneNumber.value = ''
+//   password.value = ''
+//   confirmPassword.value = ''
+//   next.value = false
+// }
 </script>
 <style scoped>
 .login-container {

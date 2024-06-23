@@ -7,35 +7,25 @@
       <p class="welcome-txt">Please login below</p>
     </div>
 
-    <form class="input-field" @submit.prevent="handleSubmit">>
-      <input
-        class="input"
-        ref="emailRef"
-        type="email"
-        id="emailbox"
-        placeholder="Email"
-        v-model="email"
-        required
-      />
-
-      <div class="password-container">
-        <input class="input" id="passwordbox" placeholder="Password" v-model="password" :type="passwordFieldType" @input="passwordInput = true"
+    <form class="input-field" @submit.prevent="useAuth.logIn">
+      <input class="input" ref="emailRef" type="email" id="emailbox" placeholder="Email" v-model="useAuth.email"
         required />
 
-        <button type="button" class="show-password-btn" @click="togglePasswordFieldType">
-            <span v-if="passwordFieldType === 'password'"
-              ><img class="show-icon" src="/icons/view.png"
-            /></span>
-            <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
-          </button>
-        
-        
+      <div class="password-container">
+        <input class="input" id="passwordbox" placeholder="Password" v-model="useAuth.password"
+          :type="useAuth.passwordFieldType" @input="useAuth.passwordInput = true" required />
+
+        <button type="button" class="show-password-btn" @click="useAuth.togglePasswordFieldType">
+          <span v-if="useAuth.passwordFieldType === 'password'"><img class="show-icon" src="/icons/view.png" /></span>
+          <span v-else><img class="show-icon" src="/icons/invisible.png" /></span>
+        </button>
+
+
       </div>
 
       <div class="subsec">
         <div class="checkbox-sec">
-          <label class="checkbox-txt" for="checkbox"
-            >Remember me
+          <label class="checkbox-txt" for="checkbox">Remember me
             <input class="checkbox" id="checkbox" type="checkbox" />
             <span class="checkbox-container"></span>
           </label>
@@ -46,10 +36,10 @@
       </div>
 
       <div>
-       <div>
-        <button class="submit-btn" type="submit" :disabled="!inputNotEmpty" >Login</button>
+        <div>
+          <button class="submit-btn" type="submit" :disabled="!useAuth.inputNotEmpty">Login</button>
 
-       </div>
+        </div>
 
         <div class="or">OR</div>
 
@@ -67,34 +57,37 @@
   </div>
 </template>
 <script setup>
-import { ref, computed } from 'vue'
-import NavbarComponent from '@/components/NavbarComponent.vue'
+import { useCounterStore } from '@/stores/counter';
+const useAuth = useCounterStore()
+// import { ref, computed } from 'vue'
+// import NavbarComponent from '@/components/NavbarComponent.vue'
 
 
-const email = ref('')
-const password = ref('')
-const passwordFieldType = ref('password') // Initial password type
-const passwordInput = ref(false)
+
+// const email = ref('')
+// const password = ref('')
+// const passwordFieldType = ref('password') // Initial password type
+// const passwordInput = ref(false)
 
 
-const togglePasswordFieldType = () => {
-  passwordFieldType.value = passwordFieldType.value === 'password' ? 'text' : 'password'
-}
+// const togglePasswordFieldType = () => {
+//   passwordFieldType.value = passwordFieldType.value === 'password' ? 'text' : 'password'
+// }
 
-const handleSubmit = () => {
-  // Handle the form submission logic
-  console.table({
-    email: email.value,
-    password: password.value,
-  })
-  // Reset the form
-  email.value = ''
-  password.value = ''
-}
+// const handleSubmit = () => {
+//   // Handle the form submission logic
+//   console.table({
+//     email: email.value,
+//     password: password.value,
+//   })
+//   // Reset the form
+//   email.value = ''
+//   password.value = ''
+// }
 
-const inputNotEmpty = computed (() =>{
-return email.value !== " " && password.value !== " "
-})
+// const inputNotEmpty = computed (() =>{
+// return email.value !== " " && password.value !== " "
+// })
 
 </script>
 <style scoped>
@@ -106,6 +99,7 @@ return email.value !== " " && password.value !== " "
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
 .logo {
   width: 10rem;
   height: auto;
@@ -114,15 +108,18 @@ return email.value !== " " && password.value !== " "
   margin-top: 8px;
   margin-bottom: 1rem;
 }
+
 .welcome-txt {
   font-size: 1.2rem;
   text-align: center;
 }
+
 #wel-txt {
   color: rgb(0, 0, 0);
   font-size: 1.5rem;
   font-weight: 500;
 }
+
 .input-field {
   width: 80%;
   height: auto;
@@ -133,6 +130,7 @@ return email.value !== " " && password.value !== " "
   gap: 2rem;
   margin-top: 30px;
 }
+
 .input {
   width: 100%;
   height: 4rem;
@@ -161,6 +159,7 @@ return email.value !== " " && password.value !== " "
   width: 20px;
   height: 20px;
 }
+
 .subsec {
   display: flex;
   justify-content: space-between;
@@ -203,7 +202,7 @@ return email.value !== " " && password.value !== " "
   }*/
 
 /* Checked effect */
-.checkbox-txt input:checked ~ .checkbox-container {
+.checkbox-txt input:checked~.checkbox-container {
   background-color: #ff6347;
 }
 
@@ -222,7 +221,7 @@ return email.value !== " " && password.value !== " "
 }
 
 /* Display checkmark when checked */
-.checkbox-txt input:checked ~ .checkbox-container::after {
+.checkbox-txt input:checked~.checkbox-container::after {
   display: block;
 }
 
@@ -240,6 +239,7 @@ return email.value !== " " && password.value !== " "
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
 }
+
 .question {
   text-align: center;
   margin-top: 15px;
@@ -247,10 +247,12 @@ return email.value !== " " && password.value !== " "
   font-weight: 500;
   color: rgb(0, 0, 0);
 }
+
 .link {
   color: #ff6347;
   cursor: pointer;
 }
+
 .link:hover {
   text-decoration: underline;
 }

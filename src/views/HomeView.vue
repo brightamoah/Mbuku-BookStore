@@ -31,16 +31,16 @@
           </p>
         </div>
       </div>
-      <div class="image-container" style="padding: 25px">
-        <img src="/images/digi1.webp" alt="Book Image 1" id="book-image-1" />
-        <img src="/images/digi2.webp" alt="Book Image 2" id="book-image-2" />
-        <img src="/images/digi3.webp" alt="Book Image 3" id="book-image-3" />
+      <div class="image-container" style="padding: 25px; width: 1250px;">
+        <img src="/images/digi-1.webp" alt="Book Image 1" id="book-image-1" />
+        <img src="/images/digi-2.webp" alt="Book Image 2" id="book-image-2" />
+        <img src="/images/digi-3.webp" alt="Book Image 3" id="book-image-3" />
       </div>
     </section>
 
     <section class="register py-5">
       <div class="container">
-        <h2 class="text-center">Buy your child's textbooks easily via Snapplify Engage</h2>
+        <h2 class="text-center">Buy your child's textbooks easily via Mbuku Shop</h2>
         <p>
           If your child's school is using Snapplify Engage for prescribed book orders, you'll find
           everything your child needs in one place.

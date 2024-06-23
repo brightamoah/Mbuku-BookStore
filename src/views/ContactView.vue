@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="info-box">
-                    <i class="bx bx-envelope"></i>
+                    <i class="fa fa-envelope-o" style="font-size:36px"></i>
                     <h3>Email Us</h3>
                     <!-- <p>logankhainga69@gmail.com<br> <theborderhub</p> -->
                   </div>
