@@ -1,14 +1,16 @@
 <template>
   <NavbarComponent />
   <div>
+    
     <main class="main">
-      <section class="shop py-5">
+    <div class="container-fluid pt-5">
         <div class="container">
-          <h2 class="text-center">Shop for textbooks and other educational resources</h2>
-          <p style="text-align: center;">Find the best textbooks and educational resources for your child's needs.</p>
-          <a href="https://shop.snapplify.com/" target="_blank" class="btn btn-primary" style="width: 10rem;display: flex; align-items: center; justify-content: center; background-color: orangered; border: none; ">Shop Now</a>
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5" style="font-size: 2rem; font-family: 'Poppins', sans-serif;">Any Questions?</h5>
+                <h1 class="display-4">Please Feel Free To Contact Us</h1>
+            </div>
+          </div>
         </div>
-      </section>
       <section
         class="contact"
         data-aos="fade-up"
@@ -21,21 +23,21 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="info-box">
-                    <i class="bx bx-map"></i>
+                    <img src="/images/adress1.png" style="height: 3rem;" alt="envelope">
                     <h3>Our Address</h3>
-                    <p>Border-hub, Busia, Kenya</p>
+                    <p>Khetias, Busia, Kenya</p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="info-box">
-                    <i class="fa fa-envelope-o" style="font-size:36px"></i>
+                    <img src="/images/mail.png" style="height: 1rem;" alt="envelope">
                     <h3>Email Us</h3>
-                    <!-- <p>logankhainga69@gmail.com<br> <theborderhub</p> -->
+                    <p>logankhainga69@gmail.com </p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="info-box">
-                    <!-- <b-icon-arrow-up></b-icon-arrow-up> -->
+                    <img src="/images/phone1.png" style="height: 2rem;" alt="envelope">
                     <h3>Call Us</h3>
                     <p>+254 792 516 158<br />+254 715 058 342</p>
                   </div>

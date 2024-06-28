@@ -31,28 +31,25 @@
               <ul>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="index.html" style="background-color: #0d2735; text-decoration: none">Introduction</a>
+                  <a href="index.html" style="background-color: #0d2735; text-decoration: none">Home</a>
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="key.html" style="background-color: #0d2735; text-decoration: none">Key Health Challenges </a>
+                  <a href="key.html" style="background-color: #0d2735; text-decoration: none">Shop </a>
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
                   <a href="strategies.html" style="background-color: #0d2735; text-decoration: none"
-                    >Strategies for improvement</a
+                    >Contact</a
                   >
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
                   <a href="Initiatives.html" style="background-color: #0d2735; text-decoration: none"
-                    >Global Initiatives</a
+                    >About</a
                   >
                 </li>
-                <li style="background-color: #0d2735">
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="get.html" style="background-color: #0d2735; text-decoration: none">Get Involved</a>
-                </li>
+                
               </ul>
             </div>
 
@@ -70,7 +67,7 @@
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
                   <a href="contact.html" style="background-color: #0d2735
-                  ;text-decoration: none">About SDG's</a>
+                  ;text-decoration: none">About Mbuku</a>
                 </li>
               </ul>
             </div>
@@ -81,10 +78,10 @@
             >
               <h4 style="background-color: #0d2735">Contact Us</h4>
               <p style="background-color: #0d2735; color: white">
-                Border-hub <br />
+                Computer Store <br />
                 Busia,<br />
                 Kenya <br />
-                <strong style="background-color: #0d2735;color: white">Phone:</strong> +254 792 516 158<br />
+                <strong style="background-color: #0d2735;color: white">Phone:</strong> +254 714 815 424<br />
                 <strong style="background-color: #0d2735;color: white">Email:</strong>
                 logankhainga69@gmail.com<br />
               </p>
@@ -94,11 +91,11 @@
               <h3 style="background-color: #0d2735">Join the conversation</h3>
               <div class="social-links mt-3" style="background-color: #0d2735">
                 <a href="https://twitter.com/khainga_simons" class="twitter"
-                  ><i class="bx bxl-twitter"></i
-                ></a>
-                <a href="#" class="facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                  ><img src="" alt="">
+                </a>
+                <a href="#" class="facebook"><img src="" ></a>
+                <a href="#" class="instagram"><img src="" alt=""></a>
+                <a href="#" class="linkedin"><img src="" alt=""></a>
               </div>
             </div>
           </div>
@@ -108,7 +105,7 @@
       <div class="container" style="background-color: #0d2735">
         <div class="copyright" style="background-color: #0d2735;color: white; ">
           &copy; Copyright
-          <strong><span style="background-color: #0d2735; color: white">Logan </span></strong
+          <strong><span style="background-color: #0d2735; color: white">Mbuku </span></strong
           >. All Rights Reserved
         </div>
         <div class="credits" style="background-color: #0d2735">
