@@ -31,22 +31,22 @@
               <ul>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="index.html" style="background-color: #0d2735; text-decoration: none">Home</a>
+                  <a href="/" style="background-color: #0d2735; text-decoration: none">> Home</a>
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="key.html" style="background-color: #0d2735; text-decoration: none">Shop </a>
+                  <a href="/shop" style="background-color: #0d2735; text-decoration: none">> Shop </a>
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="strategies.html" style="background-color: #0d2735; text-decoration: none"
-                    >Contact</a
+                  <a href="/contact" style="background-color: #0d2735; text-decoration: none"
+                    >> Contact</a
                   >
                 </li>
                 <li style="background-color: #0d2735">
                   <i class="bx bx-chevron-right"></i>
-                  <a href="Initiatives.html" style="background-color: #0d2735; text-decoration: none"
-                    >About</a
+                  <a href="/about" style="background-color: #0d2735; text-decoration: none"
+                    >> About</a
                   >
                 </li>
                 
@@ -57,16 +57,13 @@
               <h4 style="background-color: #0d2735">Company</h4>
               <ul>
                 <li style="background-color: #0d2735">
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#" style="background-color: #0d2735; text-decoration: none">About Us</a>
+                  <a href="/about" style="background-color: #0d2735; text-decoration: none">About Us</a>
                 </li>
                 <li style="background-color: #0d2735">
-                  <i class="bx bx-chevron-right"></i>
                   <a href="#" style="background-color: #0d2735 ;text-decoration: none" >Legal</a>
                 </li>
                 <li style="background-color: #0d2735">
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="contact.html" style="background-color: #0d2735
+                  <a href="/about" style="background-color: #0d2735
                   ;text-decoration: none">About Mbuku</a>
                 </li>
               </ul>
